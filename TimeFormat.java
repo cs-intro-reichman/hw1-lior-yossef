@@ -13,9 +13,27 @@ public class TimeFormat {
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
         
-		String period = (hours < 12) ? "AM" : "PM";
-		int hour12format = (hours % 12 == 0) ? hours : hours % 12;
-		String minutesStr = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
+		String period, minutesStr;
+		int hour12format;
+
+		if (hours < 12) {
+			period = "AM";
+		} else {
+			period = "PM";
+		}
+		
+		// make sure minutes has 2 digits
+		if (minutes < 10) {
+			minutesStr = "0" + minutes;
+		} else {
+			minutesStr = String.valueOf(minutes);
+		}
+		
+		if (hours == 12) {
+			hour12format = hours;
+		} else {
+			hour12format = hours % 12;
+		}
 
 		System.out.println(hour12format + ":" + minutesStr + " " + period);
 	}
