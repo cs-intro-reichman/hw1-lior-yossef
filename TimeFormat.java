@@ -26,7 +26,7 @@ public class TimeFormat {
 		if (minutes < 10) {
 			minutesStr = "0" + minutes;
 		} else {
-			minutesStr = String.valueOf(minutes);
+			minutesStr = "" + minutes;
 		}
 		
 		if (hours == 12) {
